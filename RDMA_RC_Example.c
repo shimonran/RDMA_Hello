@@ -18,7 +18,7 @@
 #include <errno.h>
 
 /* poll CQ timeout in millisec (2 seconds) */
-#define MAX_POLL_CQ_TIMEOUT 2000
+//SA/#define MAX_POLL_CQ_TIMEOUT 2000
 #define SEND_MSG   "***  SEND operation        ***"
 #define RDMA_MSG_R "***  RDMA Read operation   ***"
 #define RDMA_MSG_W "***  RDMA Write operation  ***"
