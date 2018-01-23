@@ -10,6 +10,5 @@ RDMA_RC_Example: RDMA_RC_Example.o
 
 RDMA_RC_Example.o: RDMA_RC_Example.c
 	$(CC) -c $(CFLAGS) $<
-
 clean:
 	\rm -f *.o $(TARGETS)
