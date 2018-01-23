@@ -1,5 +1,7 @@
 #!groovy
 node ('nps-server-14') {
-  checkout scm
-  sh 'make all'
+  stage 'Checkout'
+          checkout scm
+  stage 'Build'
+          sh 'make all'
 }
