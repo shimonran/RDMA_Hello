@@ -1,4 +1,3 @@
-#CC = ~dotanb/scripts/colorgcc
 CC = gcc
 CFLAGS = -Wall -W -Werror -g -O2
 LDFLAGS = -libverbs
