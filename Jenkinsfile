@@ -2,19 +2,12 @@
 node ('nps-server-14') {
   stage 'Checkout'
           checkout scm
-  stage 'Build'
+  try {
+    stage 'Build'
           sh 'make all'
-}
-post {
-    always {
-    }
-    success {
-      mail to:"shimona@mellanox.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
-    }
-    failure {
+  } catch (e) {
       mail to:"shimona@mellanox.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Boo, we failed."
-    }
-    changed {
-      mail to:"shimona@mellanox.com", subject:"CHANGED: ${currentBuild.fullDisplayName}", body: "Wow, our status changed!"
-    }
+  } finally {
+      mail to:"shimona@mellanox.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
+  }
 }
