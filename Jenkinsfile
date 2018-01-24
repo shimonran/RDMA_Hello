@@ -1,16 +1,11 @@
 #!groovy
-pipeline {
-  
-  agent { label "nps-server-14" }
-  stages {
-    stage ("Checkout") {
+node ('nps-server-14') {
+  stage 'Checkout'
           checkout scm
-    }
-    stage ("Build") { 
+  stage 'Build'
           sh 'make all'
-    }
-  }
-  post {
+}
+post {
     always {
     }
     success {
