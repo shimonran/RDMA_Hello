@@ -11,8 +11,10 @@ node ('nps-server-14') {
     mail to:"shimona@mellanox.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Boo, we failed."
   } finally {
     echo "Build success"
+    echo currentBuild.getPreviousBuild().getResult()
+    echo currentBuild.rawBuild.getPreviousBuild().getResult()
     if ( currentBuild.getPreviousBuild().getResult().equals("FAILED") ) {
-      echo "Build success after fail"
+       echo "Build success after fail"
        mail to:"shimona@mellanox.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we returned to success."
     }
   }
