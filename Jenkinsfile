@@ -9,6 +9,8 @@ node ('nps-server-14') {
     currentBuild.result = "FAILED"
     mail to:"shimona@mellanox.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Boo, we failed."
   } finally {
-    mail to:"shimona@mellanox.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
+    if ( currentBuild.getPreviousBuild().getResult().equals("FAILED") ) {
+       mail to:"shimona@mellanox.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we returned to success."
+    }
   }
 }
