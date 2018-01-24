@@ -9,8 +9,8 @@ node ('nps-server-14') {
     echo "Build failed"
     currentBuild.result = "FAILED"
     mail to:"shimona@mellanox.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", 
-                                    body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                                             <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>"""   
+                                    body: " ""FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':\n
+                                            Check console output at "<a href="${env.BUILD_URL}" "" "   
     throw e
   } finally {
     if ( currentBuild.getPreviousBuild().getResult().equals("FAILURE") ) {
