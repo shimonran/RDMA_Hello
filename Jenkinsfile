@@ -1,5 +1,5 @@
 #!groovy
-pipline ('nps-server-14') {
+node ('nps-server-14') {
   stages { 
     stage 'Checkout'
           checkout scm
