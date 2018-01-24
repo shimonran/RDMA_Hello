@@ -1,5 +1,8 @@
 #!groovy
-node ('nps-server-14') {
+pipeline {
+  
+  agent { label "nps-server-14" }
+  
   stage ("Checkout") {
           checkout scm
   }
