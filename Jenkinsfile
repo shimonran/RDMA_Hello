@@ -1,10 +1,12 @@
 #!groovy
 node ('nps-server-14') {
   stages { 
-    stage 'Checkout'
+    stage 'Checkout' {
           checkout scm
-    stage 'Build'
+    }
+    stage 'Build' {
           sh 'make all'
+    }
   }
   post {
     always {
