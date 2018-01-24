@@ -2,12 +2,13 @@
 pipeline {
   
   agent { label "nps-server-14" }
-  
-  stage ("Checkout") {
+  stages {
+    stage ("Checkout") {
           checkout scm
-  }
-  stage ("Build") { 
+    }
+    stage ("Build") { 
           sh 'make all'
+    }
   }
   post {
     always {
