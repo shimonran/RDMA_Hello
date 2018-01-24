@@ -17,5 +17,4 @@ post {
     changed {
       mail to:"shimona@mellanox.com", subject:"CHANGED: ${currentBuild.fullDisplayName}", body: "Wow, our status changed!"
     }
-  }
 }
